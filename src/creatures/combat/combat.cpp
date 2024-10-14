@@ -607,10 +607,10 @@ void Combat::CombatHealthFunc(std::shared_ptr<Creature> caster, std::shared_ptr<
 
 		if (targetPlayer && targetPlayer->getSkull() != SKULL_BLACK) {
 			if (damage.primary.type != COMBAT_HEALING) {
-				damage.primary.value /= 2;
+				damage.primary.value *= 1.4;
 			}
 			if (damage.secondary.type != COMBAT_HEALING) {
-				damage.secondary.value /= 2;
+				damage.secondary.value *= 1.4;
 			}
 		}
 
