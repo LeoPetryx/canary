@@ -2231,7 +2231,7 @@ void Player::onThink(uint32_t interval) {
 	// Wheel of destiny major spells
 	wheel()->onThink();
 
-	//g_callbacks().executeCallback(EventCallback_t::playerOnThink, &EventCallback::playerOnThink, getPlayer(), interval);
+	// g_callbacks().executeCallback(EventCallback_t::playerOnThink, &EventCallback::playerOnThink, getPlayer(), interval);
 }
 
 uint32_t Player::isMuted() const {
@@ -3051,7 +3051,8 @@ void Player::addInFightTicks(bool pzlock /*= false*/) {
 			const auto &condition = Condition::createCondition(CONDITIONID_DEFAULT, CONDITION_INFIGHT, g_configManager().getNumber(PZ_LOCKED), 0);
 			player->addCondition(condition);
 		}
-	}, "Player::addInFightTicks");
+	},
+	                                     "Player::addInFightTicks");
 }
 
 void Player::removeList() {

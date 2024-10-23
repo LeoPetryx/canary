@@ -595,9 +595,9 @@ void Combat::CombatHealthFunc(const std::shared_ptr<Creature> &caster, const std
 		targetPlayer = target->getPlayer();
 	}
 
-	//g_logger().trace("[{}] (old) eventcallback: 'creatureOnCombat', damage primary: '{}', secondary: '{}'", __FUNCTION__, damage.primary.value, damage.secondary.value);
-	//g_callbacks().executeCallback(EventCallback_t::creatureOnCombat, &EventCallback::creatureOnCombat, caster, target, std::ref(damage));
-	//g_logger().trace("[{}] (new) eventcallback: 'creatureOnCombat', damage primary: '{}', secondary: '{}'", __FUNCTION__, damage.primary.value, damage.secondary.value);
+	// g_logger().trace("[{}] (old) eventcallback: 'creatureOnCombat', damage primary: '{}', secondary: '{}'", __FUNCTION__, damage.primary.value, damage.secondary.value);
+	// g_callbacks().executeCallback(EventCallback_t::creatureOnCombat, &EventCallback::creatureOnCombat, caster, target, std::ref(damage));
+	// g_logger().trace("[{}] (new) eventcallback: 'creatureOnCombat', damage primary: '{}', secondary: '{}'", __FUNCTION__, damage.primary.value, damage.secondary.value);
 
 	if (attackerPlayer) {
 		const auto &item = attackerPlayer->getWeapon();
