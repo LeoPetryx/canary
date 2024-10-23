@@ -17,7 +17,12 @@
 #include "lua/functions/creatures/player/vocation_functions.hpp"
 
 class PlayerFunctions final : LuaScriptInterface {
-private:
+	explicit PlayerFunctions(lua_State* L) :
+		LuaScriptInterface("PlayerFunctions") {
+		init(L);
+	}
+	~PlayerFunctions() override = default;
+
 	static void init(lua_State* L) {
 		registerSharedClass(L, "Player", "Creature", PlayerFunctions::luaPlayerCreate);
 		registerMetaMethod(L, "Player", "__eq", PlayerFunctions::luaUserdataCompare);
@@ -363,6 +368,9 @@ private:
 		registerMethod(L, "Player", "getAchievementPoints", PlayerFunctions::luaPlayerGetAchievementPoints);
 		registerMethod(L, "Player", "addAchievementPoints", PlayerFunctions::luaPlayerAddAchievementPoints);
 		registerMethod(L, "Player", "removeAchievementPoints", PlayerFunctions::luaPlayerRemoveAchievementPoints);
+
+		// Drop Connection
+		registerMethod(L, "Player", "dropConnection", PlayerFunctions::luaPlayerDropConnection);
 
 		// Badge Functions
 		registerMethod(L, "Player", "addBadge", PlayerFunctions::luaPlayerAddBadge);
@@ -733,6 +741,8 @@ private:
 	static int luaPlayerGetAchievementPoints(lua_State* L);
 	static int luaPlayerAddAchievementPoints(lua_State* L);
 	static int luaPlayerRemoveAchievementPoints(lua_State* L);
+
+	static int luaPlayerDropConnection(lua_State* L);
 
 	static int luaPlayerAddBadge(lua_State* L);
 
